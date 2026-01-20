@@ -96,7 +96,6 @@ namespace Periodico.Controllers.Models
 
         private async Task<Noticia?> NoticiaPorId(int id)
         {
-            // FindAsync es más eficiente para buscar por la llave primaria
             return await _context.Noticias
                 .AsNoTracking()
                 .FirstOrDefaultAsync(n => n.Id == id);
