@@ -1,0 +1,35 @@
+# --- Binarios y compilación ---
+[Bb]in/
+[Oo]bj/
+[Rr]elease/
+[Dd]ebug/
+
+# --- .NET / Visual Studio ---
+*.user
+*.userosscache
+*.sln.docuser
+.vs/
+[Tt]est[Rr]esults/
+_ReSharper*/
+
+# --- Configuración Sensible (Importante) ---
+# No subir secretos ni configuraciones de base de datos local
+appsettings.Development.json
+usersecrets.json
+
+# --- Paquetes y Dependencias ---
+*.nuget.cache
+nupkg/
+# Si usas npm para el frontend
+node_modules/
+.pnp/
+
+# --- Herramientas de Frontend (Si aplica) ---
+.sass-cache/
+dist/
+wwwroot/imagenes
+
+# --- OS y Otros ---
+.DS_Store
+Thumbs.db
+.vscode/

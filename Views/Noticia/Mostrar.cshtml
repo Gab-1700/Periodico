@@ -1,0 +1,5 @@
+﻿@model Noticia
+@await Html.PartialAsync("Noticia/_Previsualizar", Model)
+<a href="@Url.Action("Editar","Formulario",new {id=Model.Id})" class="btn btn-primary">
+	Editar
+</a>

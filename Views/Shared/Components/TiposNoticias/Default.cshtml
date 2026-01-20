@@ -1,0 +1,17 @@
+﻿@using Periodico.Models;
+@model IEnumerable<TipoNoticia>
+
+<div class="d-flex justify-content-center border-bottom border-top py-2">
+    <!-- <a class="btn btn-primary" href="@Url.Action("MostrarNoticias", "Noticia")">UltimasNoticias</a> -->
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link text-dark fw-bold" href="@Url.Action("MostrarNoticias","Noticia")">ULTIMAS NOTICIAS</a>
+        </li>
+        @foreach (var item in Model)
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark fw-bold" href="@Url.Action("MostrarNoticiasPorTipo","Noticia",new {TipoNoticia = item})">@item.ToString().ToUpper()</a>
+            </li>
+        }
+    </ul>
+</div>

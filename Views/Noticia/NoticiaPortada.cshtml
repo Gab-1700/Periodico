@@ -1,0 +1,97 @@
+﻿@using Periodico.ViewModels
+@model PortadaVM
+
+<!-- PORTADA -->
+<section class="periodico">
+	<!-- COLUMNA IZQUIERDA -->
+	<section class="portada">
+		<h2>Noticia Principal</h2>
+
+		@if (Model.Principal != null)
+		{
+			<article class="noticia-principal">
+
+				<span class="tipo @Model.Principal.Tipo.ToString().ToLower()">
+					@Model.Principal.Tipo
+				</span>
+
+				<h1 class="titulo">
+					@Model.Principal.Titulo
+				</h1>
+
+				<p class="fecha">
+					@Model.Principal.Fecha.ToShortDateString()
+				</p>
+
+				<img src="@Model.Principal.Imagen" alt="Imagen de la noticia" />
+
+				<p class="contenido">
+					@Model.Principal.Contenido
+				</p>
+			</article>
+		}
+	</section>
+
+	<!-- COLUMNA DERECHA -->
+	<aside class="noticias-secundarias">
+		<h2>Otras Noticias</h2>
+		<!-- aquí luego van nacional, internacional, etc -->
+		<!-- NACIONALES -->
+		<section class="noticia-principal">
+	
+			@foreach (var noticia in Model.Nacionales)
+			{
+				<span class="tipo @noticia.Tipo.ToString().ToLower()">
+					@noticia.Tipo
+				</span>
+				<div class="noticia-secundaria">
+					<h4>@noticia.Titulo</h4>
+				</div>
+				<p class="contenido">
+					@noticia.Contenido
+				</p>
+				
+			}
+		</section>
+		<!-- INTERNACIONALES -->
+		<section>
+			<h3>Internacionales</h3>
+			@foreach (var noticia in Model.Internacionales)
+			{
+				<div class="noticia-secundaria">
+					<h4>@noticia.Titulo</h4>
+				</div>
+			}
+		</section>
+
+	</aside>
+</section>
+
+<hr />
+
+
+
+
+
+<!-- ECONOMÍA -->
+<section>
+	<h3>Economía</h3>
+	@foreach (var noticia in Model.Economia)
+	{
+		<div class="noticia-terciaria">
+			<h5>@noticia.Titulo</h5>
+		</div>
+	}
+</section>
+
+<!-- DEPORTES -->
+<section>
+	<h3>Deportes</h3>
+	@foreach (var noticia in Model.Deportes)
+	{
+		<div class="noticia-terciaria">
+			<h5>@noticia.Titulo</h5>
+		</div>
+	}
+</section>
+

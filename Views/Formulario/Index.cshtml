@@ -1,0 +1,52 @@
+﻿@model Noticia
+<form method="post" action="/Formulario/Previsualizar" enctype="multipart/form-data">
+	<input type="hidden" name="Id" value="@Model.Id" />
+
+	<div class="mb-3">
+		<label for="titulo" class="form-label">
+			TITULO
+		</label>
+		<input id="titulo" type="text" name="Titulo" value="@(Model.Titulo ?? "")" class="form-control" placeholder="escriba un titulo" required>
+	</div>
+
+	<div class="mb-3">
+		<label for="contenido" class="form-label">
+			CONTENIDO
+		</label>
+		<textarea id="contenido" rows="4" class="form-control" name="Contenido" required> @(Model.Contenido ?? "")</textarea>
+	</div>
+	<div class="mb-3">
+		<label for="fecha" class="form-label">
+			FECHA
+		</label>
+		<input id="fecha" type="date" class="form-control" name="Fecha" required
+			   value="@Model.Fecha.ToString("yyyy-MM-dd")">
+	</div>
+	<div class="mb-3">
+		<label for="imagen" class="form-label">
+			IMAGEN
+		</label>
+		<input id="imagen" type="file" class="form-control" accept="image/png, image/jpeg" name="Imagen">
+	</div>
+
+	<div class="mb-3">
+		<label for="tipo" class="form-label">
+			TIPO
+		</label>
+		<select id="tipo" class="form-select" name="Tipo">
+			<option value="1">Principal</option>
+			<option value="2">Nacional</option>
+			<option value="3">Internacional</option>
+			<option value="4">Economia</option>
+			<option value="5">Deportes</option>
+		</select>
+	</div>
+	<div class="text-center">
+		<button class="btn btn-primary">Previsualizar</button>
+		<button class="btn btn-success" formaction="/Formulario/Guardar">Guardar</button>
+		<button class="btn btn-secondary" formaction="/Formulario/Persistir">Persistir</button>
+		
+	</div>
+</form>
+
+

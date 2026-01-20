@@ -1,0 +1,23 @@
+﻿@using System.Globalization
+@model Noticia
+@{
+	var tipo = Model.Tipo switch
+	{
+		TipoNoticia.Principal => "bg-primary",
+		TipoNoticia.Nacional => "bg-secondary",
+		TipoNoticia.Internacional => "bg-success",
+		TipoNoticia.Economia => "bg-warning text-dark",
+		TipoNoticia.Deportes => "bg-info text-dark",
+		_ => ""
+	};
+}
+
+<span class="badge rounded-pill @tipo">@Model.Tipo</span>
+<p><strong>Santa Cruz, @Model.Fecha.ToString("dd 'de' MMMM yyyy", new CultureInfo("es-Es"))</strong></p>
+<h2>@Model.Titulo</h2>
+<p>@Model.Contenido</p>
+@if (Model.Imagen != "")
+{
+	<img src="@Model.Imagen" alt="Imagen noticia" width="500" />
+}
+
